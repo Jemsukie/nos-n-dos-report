@@ -1,6 +1,8 @@
-# NOS and DOS simulator
+# Module 11 report
 
-React version of the Module 11 file-sharing demo.
+The full slide deck, with the NOS and DOS simulator on the slide after the single-system-image figure.
+
+Arrow keys move between slides. N shows the notes.
 
 - Left: three peer computers. Get or send names one other computer, and the file travels only between those two.
 - Right: one shared list. Upload or delete on any computer updates all three. Three files at most.

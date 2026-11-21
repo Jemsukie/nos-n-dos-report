@@ -1,0 +1,564 @@
+[
+  {
+    "title": "Management of Network Functions",
+    "section": "MIT102  ·  MODULE 11",
+    "items": [
+      [
+        "NOS",
+        "Network Operating System.\nEach computer keeps its own OS."
+      ],
+      [
+        "DOS / DO/S",
+        "Distributed operating system.\nMany machines, one system image."
+      ]
+    ],
+    "point": "Who manages shared resources once the network already exists?",
+    "notes": "Open from Modules 9 and 10. A network is nodes, links, and protocols. Routers decide where packets go. A cable carries no instructions, and a router cannot forward a packet without software. DOS in this module means distributed operating system, not MS-DOS and not denial of service. Source: Arjay F. Abio, Module 11, sections 1–4.",
+    "question": "What does DOS mean in this module?",
+    "answer": "A distributed operating system: many computers presented as one coherent system.",
+    "source": "Module 11",
+    "kind": "hero"
+  },
+  {
+    "title": "By the end of the module",
+    "section": "LEARNING OUTCOMES",
+    "items": [
+      [
+        "Differentiate",
+        "Say how a NOS differs from a DOS."
+      ],
+      [
+        "Classify",
+        "Label at least four systems and justify each one."
+      ],
+      [
+        "Assess",
+        "Weigh a single system image against a client-server NOS."
+      ]
+    ],
+    "point": "A strong answer is the label plus the evidence.",
+    "notes": "The three outcomes in section 3. Classify means Windows Server, Cisco IOS, a Hadoop cluster, and similar cases. Assess means benefits and costs, then a judgment for a stated workload.",
+    "question": "Is the label NOS enough on its own?",
+    "answer": "No. The justification is part of the answer.",
+    "source": "Module 11",
+    "kind": "cards"
+  },
+  {
+    "title": "Two ways to manage the work",
+    "section": "MODULE INTRODUCTION",
+    "items": [
+      [
+        "Familiar: NOS",
+        "Computers keep their own OS and share through services such as login and files."
+      ],
+      [
+        "Ambitious: DOS",
+        "Many computers act as one system. Users need not know which machine holds the work."
+      ]
+    ],
+    "point": "Choosing email, storage, or analysis is often a choice between these styles.",
+    "notes": "Section 4. Windows Server and Cisco IOS are the NOS examples. Research systems such as Amoeba, and descendants such as large data platforms, are the DOS direction. A campus can use a central login server and still store analysis files across dozens of machines.",
+    "question": "Why does the difference matter to a graduate?",
+    "answer": "They can explain what is gained and lost when an organization picks one style of management.",
+    "source": "Module 11",
+    "kind": "hero"
+  },
+  {
+    "title": "Client–server and peer-to-peer",
+    "section": "5.1  ·  NETWORKING MODELS",
+    "items": [
+      [
+        "Client–server",
+        "A server waits and provides.\nA client requests and uses the answer."
+      ],
+      [
+        "Peer-to-peer",
+        "Every peer can ask and provide.\nNo single machine must stay on."
+      ]
+    ],
+    "point": "These are roles, not cable layouts. The same wires can carry either model.",
+    "notes": "Section 5.1. Web browsing is the everyday client-server case. Jain (2025) lists web servers, search engines, and social networking, and calls client-server the more secure model because data and rules live on the server. The server is also a shared dependency: failure or overload hurts every client. P2P examples: BitTorrent, eMule, LimeWire, Skype, and a small office workgroup.",
+    "question": "Is a star topology the same thing as client-server?",
+    "answer": "No. Topology is how the wires are laid out. The model is who does what.",
+    "source": "Module 11",
+    "kind": "hero"
+  },
+  {
+    "title": "How the two models differ",
+    "section": "5.1.3  ·  TABLE 1",
+    "items": [
+      [
+        "Roles",
+        "Separate: servers provide, clients request.",
+        "Shared: each peer both requests and provides."
+      ],
+      [
+        "Always-on server",
+        "Yes. The server must stay reachable.",
+        "No. No single machine is required."
+      ],
+      [
+        "Scalability",
+        "Limited by the server unless more servers are added.",
+        "High. Every new peer adds capacity."
+      ],
+      [
+        "Security and control",
+        "Easier to secure and manage in one place.",
+        "Hard to authenticate and control."
+      ],
+      [
+        "Administration",
+        "Centralized: accounts, policies, and backups.",
+        "Distributed: each owner manages their own machine."
+      ],
+      [
+        "Failure",
+        "The server is a single point of failure unless duplicated.",
+        "Loss of one peer rarely stops the whole system."
+      ],
+      [
+        "Examples",
+        "Web servers, search engines, social networking.",
+        "BitTorrent, Skype, small office workgroups."
+      ]
+    ],
+    "point": "Client–server is the natural partner of a network operating system.",
+    "notes": "Full Table 1. The first columns follow Jain (2025); administration, failure, and the practical reading of the others follow the module. Real systems mix both: a central login server plus folders shared from staff PCs, or a central index with peer delivery. P2P fits a huge loose group, or a group small enough that central administration is unnecessary.",
+    "question": "Name one client-server example and one peer-to-peer example.",
+    "answer": "Web server; BitTorrent or a small office workgroup.",
+    "source": "Jain, 2025; Module 11, Table 1",
+    "kind": "table"
+  },
+  {
+    "title": "A network operating system",
+    "section": "5.2  ·  NOS",
+    "items": [
+      [
+        "Still independent",
+        "Each computer keeps its own OS and hardware."
+      ],
+      [
+        "Shared services",
+        "Accounts, files, printers, directory lookup, and security policy."
+      ],
+      [
+        "Network stays visible",
+        "You name the server, the share, or the printer."
+      ]
+    ],
+    "point": "Loosely coupled machines that agree on how to talk and what to offer.",
+    "notes": "Section 5.2.1–5.2.2. Back (2005): a network OS is loosely coupled and heterogeneous; each node exports its local services. Two forms today: a server OS such as Windows Server, and a network-device OS such as Cisco IOS. Early sharing was a disk walked across the room; LANs added file, print, then directories and policy.",
+    "question": "What is the feature that separates a NOS from a DOS?",
+    "answer": "In a NOS the user knows there are separate machines. Location is not hidden.",
+    "source": "Back, 2005; Module 11, §5.2",
+    "kind": "cards"
+  },
+  {
+    "title": "Windows Server",
+    "section": "5.2.3  ·  SERVER NOS",
+    "items": [
+      [
+        "Active Directory",
+        "One directory of users, computers, groups, and policies."
+      ],
+      [
+        "Domain controllers",
+        "Each holds the directory. A second controller replicates it."
+      ],
+      [
+        "The lab PC",
+        "Keeps its own Windows. Sign-in is checked over the network."
+      ]
+    ],
+    "point": "Clients request accounts and shares. The machines do not merge.",
+    "notes": "Section 5.2.3 and Figure 2. Microsoft (2025): AD DS is the foundation for Windows enterprise networks. A domain controller can accept changes and replicate them. Extra roles often include file sharing, DNS, and DHCP, which tie back to Module 10. This is client-server and a clear NOS: every machine keeps its own OS.",
+    "question": "Where does the student account live?",
+    "answer": "In the directory on the domain controllers, not as the only copy on the lab PC.",
+    "source": "Microsoft, 2025",
+    "kind": "cards"
+  },
+  {
+    "title": "Cisco IOS",
+    "section": "5.2.4  ·  NETWORK-DEVICE NOS",
+    "items": [
+      [
+        "User EXEC",
+        "Router>  ·  a limited set of commands."
+      ],
+      [
+        "Privileged EXEC",
+        "Router#  ·  type enable. All commands."
+      ],
+      [
+        "Global config",
+        "Router(config)#  ·  changes the running configuration."
+      ]
+    ],
+    "point": "Save it, or the change disappears at reboot.",
+    "notes": "Section 5.2.4 and Table 2. IOS and IOS XE manage forwarding, routing protocols such as OSPF, addresses, and costs. Running-config is active. Startup-config is stored in NVRAM and loaded at boot. copy running-config startup-config makes the change survive reboot (Cisco Systems, 2020). IOS is not a file-and-print server. In this course it is a network-device NOS: each device stays independent and cooperates by protocol.",
+    "question": "If two routers exchange OSPF, have they become one system?",
+    "answer": "No. They cooperate. There is no single system image.",
+    "source": "Cisco Systems, 2020",
+    "kind": "cards"
+  },
+  {
+    "title": "Windows Server beside Cisco IOS",
+    "section": "5.2  ·  TABLE 3",
+    "items": [
+      [
+        "Purpose",
+        "Directory, files, and printing for client computers.",
+        "Switching and routing on a network device."
+      ],
+      [
+        "Typical user",
+        "Students, staff, and applications.",
+        "Network administrators."
+      ],
+      [
+        "Management",
+        "Central directory and policies.",
+        "Per-device CLI. Running config and startup config."
+      ],
+      [
+        "Model",
+        "Client–server.",
+        "Devices cooperate through protocols such as OSPF."
+      ],
+      [
+        "Network visible?",
+        "Yes. Users reach named servers and shares.",
+        "Yes. The administrator addresses each device."
+      ],
+      [
+        "Classification",
+        "NOS.",
+        "NOS, network-device variant."
+      ]
+    ],
+    "point": "Both keep each machine independent. Neither one hides where the resource is.",
+    "notes": "Table 3. Windows Server is the server operating system that provides shared services. Cisco IOS is the network-device operating system. Both are NOS examples because the network stays visible and the machines do not merge into one system image.",
+    "question": "If routers exchange OSPF, which column do they belong in?",
+    "answer": "Cisco IOS: device-by-device cooperation, still a NOS.",
+    "source": "Module 11, Table 3",
+    "kind": "table",
+    "headers": [
+      "Feature",
+      "Windows Server",
+      "Cisco IOS"
+    ]
+  },
+  {
+    "title": "A distributed operating system",
+    "section": "5.3  ·  DOS / DO/S",
+    "items": [
+      [
+        "Many computers",
+        "Independent machines, processes and resources spread across them."
+      ],
+      [
+        "One system image",
+        "Log in once. One file tree. The system places the work."
+      ]
+    ],
+    "point": "In a NOS you name the machine. In a DOS you do not have to.",
+    "notes": "Section 5.3.1 and Figure 3. Shenoy (2022): independent computers that appear as one coherent system. Van Steen and Tanenbaum (2023): processes and resources are sufficiently spread across multiple computers. A decentralized system is stronger: the spreading is necessary, not merely sufficient. Back (2005): a DOS is tightly coupled, with integrated process and resource management, service migration, and automatic replication.",
+    "question": "What is a single system image?",
+    "answer": "The illusion that many machines are one computer.",
+    "source": "Shenoy, 2022; van Steen & Tanenbaum, 2023",
+    "kind": "hero"
+  },
+  {
+    "title": "From Amoeba to middleware",
+    "section": "5.3.2  ·  HOW DOS IDEAS DEVELOPED",
+    "items": [
+      [
+        "The wish",
+        "Use many cheap computers as one large timeshared machine."
+      ],
+      [
+        "Amoeba",
+        "A 1989 research DOS. The OS itself managed the machines as one."
+      ],
+      [
+        "Middleware",
+        "The same ideas, running on top of each machine’s ordinary OS."
+      ]
+    ],
+    "point": "Hadoop belongs here: one view, ordinary operating systems underneath.",
+    "notes": "Tanenbaum et al. (1989), Experiences with the Amoeba Distributed Operating System. Few research DOS products became everyday operating systems. Back (2005) describes middleware as aiming at both heterogeneity and transparency. Classification must say so: a single system image can exist while each node still runs its own OS.",
+    "question": "Is middleware the same thing as a full distributed OS?",
+    "answer": "No. It supplies the shared view on top of ordinary operating systems.",
+    "source": "Tanenbaum et al., 1989; Back, 2005",
+    "kind": "cards"
+  },
+  {
+    "title": "What a DOS is trying to do",
+    "section": "5.3.3 – 5.3.6  ·  DESIGN GOALS",
+    "items": [
+      [
+        "Resource sharing",
+        "Remote files, storage, and services without one giant computer."
+      ],
+      [
+        "Transparency",
+        "Hide the fact that the system is spread across machines."
+      ],
+      [
+        "Fault tolerance",
+        "Keep working when parts fail. At scale, failure is normal."
+      ],
+      [
+        "Open and scalable",
+        "Standard interfaces. Grow in size, distance, and organizations."
+      ]
+    ],
+    "point": "Full transparency is not always worth it. Latency cannot be hidden.",
+    "notes": "Van Steen and Tanenbaum (2023) and Shenoy (2022). Advantages include price-performance, reliability, and incremental growth. HDFS: hardware failure is the norm, so detection and automatic recovery are core goals (Apache Software Foundation, 2020). Scaling techniques: hide communication latency, distribute work, and replicate. Back (2005): pursuing transparency adds cost and can reduce performance.",
+    "question": "Why can a “local” file still be slow?",
+    "answer": "The file may sit far away. The name hides the distance; the network does not.",
+    "source": "van Steen & Tanenbaum, 2023; Shenoy, 2022",
+    "kind": "four"
+  },
+  {
+    "title": "Transparency: how you reach it",
+    "section": "5.3.4  ·  TABLE 4",
+    "items": [
+      [
+        "Access",
+        "A file opens the same way on Windows or Linux."
+      ],
+      [
+        "Location",
+        "Open /data/report.csv without knowing the machine."
+      ],
+      [
+        "Migration",
+        "The file moves. Its name does not change."
+      ],
+      [
+        "Relocation",
+        "A running job shifts to another machine and continues."
+      ]
+    ],
+    "point": "Transparency hides distribution. It does not remove distance.",
+    "notes": "First four types in Table 4, from van Steen and Tanenbaum (2023) and Shenoy (2022). Use HDFS for location: the user sees one path; DataNodes hold the blocks.",
+    "question": "Which type hides where a resource physically resides?",
+    "answer": "Location transparency.",
+    "source": "Table 4",
+    "kind": "four"
+  },
+  {
+    "title": "Transparency: copies, sharing, failure",
+    "section": "5.3.4  ·  TABLE 4",
+    "items": [
+      [
+        "Replication",
+        "Three copies exist. You see one name."
+      ],
+      [
+        "Concurrency",
+        "Two users share a resource and do not see a raw clash."
+      ],
+      [
+        "Failure",
+        "A disk dies. The system reads another copy."
+      ],
+      [
+        "Persistence",
+        "A service restarts. Its data is still there."
+      ]
+    ],
+    "point": "Failure transparency and replication are what HDFS is built to provide.",
+    "notes": "Persistence is listed by Shenoy (2022): whether a resource is in memory or on disk is hidden. Designers choose how much to hide. A correct remote open can still be too slow to treat as local.",
+    "question": "Give one failure-transparency example from this module.",
+    "answer": "HDFS keeps serving a block from another replica after a DataNode dies.",
+    "source": "Table 4; Apache, 2020",
+    "kind": "four"
+  },
+  {
+    "title": "HDFS: one name, many disks",
+    "section": "5.3.5  ·  FAULT TOLERANCE",
+    "items": [
+      [
+        "NameNode",
+        "Holds the namespace and decides replication."
+      ],
+      [
+        "DataNodes",
+        "Store blocks and send heartbeats. Silence means dead."
+      ],
+      [
+        "Three copies",
+        "Writer’s node, a remote rack, and another node on that rack."
+      ]
+    ],
+    "point": "The user sees one file. A central NameNode still coordinates.",
+    "notes": "Figure 4 and Apache Software Foundation (2020). Master and slave: one NameNode, typically one DataNode per machine. A file is split into blocks. Block size and replication factor can be set per file. A dead DataNode gets no new I/O. Default placement for replication factor three survives a lost node and a lost rack. The NameNode simplifies the design and can become a bottleneck.",
+    "question": "Does a distributed design always have no center?",
+    "answer": "No. HDFS looks distributed and still depends on the NameNode.",
+    "source": "Apache Software Foundation, 2020",
+    "kind": "cards"
+  },
+  {
+    "title": "NOS beside DOS",
+    "section": "5.4.1  ·  TABLE 5",
+    "items": [
+      [
+        "Coupling",
+        "Loose; each node exports services  ·  tight; managed as one"
+      ],
+      [
+        "What you see",
+        "Named servers and shares  ·  one coherent system"
+      ],
+      [
+        "Transparency",
+        "Location stays visible  ·  location, copies, and failure are hidden"
+      ],
+      [
+        "Failure",
+        "Add backup servers yourself  ·  replication and recovery are built in"
+      ]
+    ],
+    "point": "NOS complexity is moderate. DOS must manage consistency, latency, and coordination.",
+    "notes": "Table 5. Coupling and transparency follow Back (2005) and Shenoy (2022). A DOS may be one system layer, or middleware that gives that effect. Examples on the NOS side: Windows Server domain, Cisco IOS. On the DOS side: Amoeba, and Hadoop-style clusters as middleware.",
+    "question": "Which side hides location?",
+    "answer": "The distributed operating system.",
+    "source": "Back, 2005; Shenoy, 2022",
+    "kind": "rows"
+  },
+  {
+    "title": "Four questions, in order",
+    "section": "5.4.2  ·  HOW TO CLASSIFY",
+    "items": [
+      [
+        "1 · Own OS?",
+        "If each machine stays independent and only shares by agreement, lean NOS."
+      ],
+      [
+        "2 · Name it?",
+        "If you must name the machine to reach a resource, the network is visible. NOS."
+      ],
+      [
+        "3 · One namespace?",
+        "If work and data are placed for you under one name, that is a single system image."
+      ],
+      [
+        "4 · Keeps going?",
+        "If it keeps going when machines die, that is a DOS goal."
+      ]
+    ],
+    "point": "More yes answers on 3 and 4 pull the system toward DOS.",
+    "notes": "Section 5.4.2. Use the questions in this order on an unfamiliar system. Question 4 means fault tolerance by design, not an administrator who later adds a backup.",
+    "question": "A system has one namespace and rebuilds lost copies. Which way does it lean?",
+    "answer": "Toward DOS, even if each node still runs an ordinary OS.",
+    "source": "Module 11",
+    "kind": "rows"
+  },
+  {
+    "title": "Label it, then say why",
+    "section": "5.4.3  ·  TABLE 6",
+    "items": [
+      [
+        "Windows Server + AD DS",
+        "NOS — own OS on each client, named shares, client–server."
+      ],
+      [
+        "Cisco IOS",
+        "NOS, device variant — own OS, per-device CLI, protocols, no single image."
+      ],
+      [
+        "HDFS",
+        "DOS-style middleware — one namespace and automatic recovery; ordinary OS underneath."
+      ],
+      [
+        "Amoeba",
+        "DOS — the operating system itself was built to manage the machines as one."
+      ]
+    ],
+    "point": "A home workgroup is peer-to-peer with NOS features: visible network, no single image.",
+    "notes": "Table 6. If a question forces HDFS into one label, answer DOS and add that it is middleware. Calling HDFS a NOS misses the single system image. Calling it a complete DOS ignores the ordinary OS on each node. A good answer states both.",
+    "question": "Which example needs both halves of the answer?",
+    "answer": "HDFS: DOS-style features, delivered as middleware.",
+    "source": "Table 6",
+    "kind": "rows"
+  },
+  {
+    "title": "One namespace has a price",
+    "section": "5.5  ·  ENTERPRISE JUDGMENT",
+    "items": [
+      [
+        "Easier with DOS",
+        "One namespace, add machines, hidden moves, copies rebuilt for you."
+      ],
+      [
+        "Easier with NOS",
+        "Known server, clear fault, one directory for policy, common skills."
+      ],
+      [
+        "The catch",
+        "Hidden location can hide latency, waste, and the audit trail."
+      ]
+    ],
+    "point": "Neither style wins every resource. Most enterprises use both.",
+    "notes": "Section 5.5 and Table 7. Case: three campuses, file storage for 20,000 students. NOS: a student’s files live on a named server at a campus. DOS-style: one namespace, automatic placement and copies. DOS scales more smoothly and is stronger when failures are frequent (van Steen & Tanenbaum, 2023; HDFS). NOS is more predictable, easier to audit, and cheaper to start. Security gets harder when an administrator cannot say where a record is stored. A directory-based NOS for identity; a distributed platform for large-scale data.",
+    "question": "Where does a single system image pay off?",
+    "answer": "Huge workloads, cheap failure-prone hardware, and data that can be spread freely.",
+    "source": "Table 7; Back, 2005",
+    "kind": "cards"
+  },
+  {
+    "title": "Check the choice",
+    "section": "5.6  ·  PRACTICE",
+    "items": [
+      [
+        "Hospital records",
+        "Lean NOS. Auditors must know where each record lives."
+      ],
+      [
+        "Hundreds of TB of logs",
+        "Lean DOS-style. Cheap machines fail; replication and added disks fit."
+      ],
+      [
+        "HDFS in one line",
+        "DOS if forced — then say middleware, not a full operating system."
+      ]
+    ],
+    "point": "Match the style to the resource. More transparency is not always better.",
+    "notes": "Practice questions 5, 6, and 3c, with answers from Table 8. Also be ready for: two differences between P2P and client-server; location vs failure transparency; and a one-sentence NOS vs DOS distinction. Key takeaways are section 5.6.2: visible network, single system image, transparency has limits, Hadoop is middleware, enterprises combine both.",
+    "question": "A hospital must always know where a patient record is stored. Which way do you lean?",
+    "answer": "Client-server NOS. A DOS would hide the location auditors need.",
+    "source": "Table 8",
+    "kind": "cards"
+  },
+  {
+    "title": "What to remember",
+    "section": "5.6.2  ·  KEY TAKEAWAYS",
+    "items": [
+      [
+        "Roles",
+        "Client–server is easier to control. Peer-to-peer scales and is harder to secure."
+      ],
+      [
+        "NOS",
+        "Independent computers, shared services, and a network the user can see."
+      ],
+      [
+        "DOS",
+        "Many computers, one view: sharing, transparency, and fault tolerance."
+      ],
+      [
+        "Judgment",
+        "A single system image eases growth and hides the audit trail. Use both styles."
+      ]
+    ],
+    "point": "Windows Server and Cisco IOS are NOS. Amoeba is DOS. Hadoop is middleware.",
+    "notes": "Section 5.6.2. Transparency types: access, location, migration, relocation, replication, concurrency, failure, and persistence. Latency cannot be hidden. Close by sending students back to Tables 1, 4, 5, 6, and 7.",
+    "question": "In one sentence, what is this module about?",
+    "answer": "How software manages shared resources across machines: a visible network, or one system image.",
+    "source": "Module 11",
+    "kind": "four"
+  }
+]
